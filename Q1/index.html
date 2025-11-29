@@ -6,14 +6,27 @@
     <title>Fleet Management App</title>
 </head>
 <body>
-    <input type="email" placeholder="Enter email"><br><br>
-    <input type="password" placeholder="Enter password"><br><br>
+    <input type="email" id="email" placeholder="Enter email"><br><br>
+    <input type="password" id="password" placeholder="Enter password"><br><br>
     <button id="login">Login</button>
     
 </body>
-<script>
-    document.getElementById(login).addEventListener('click', () => {
-        window.location.href = 'admin.html'
+<script> 
+    const validemail = "admin@gmail.com";
+    const validPassword = "admin1234"
+    document.getElementById('login').addEventListener('click', () => {
+       const email = document.getElementById(email).value;
+       const password = document.getElementById(password).value;
+
+       if(email === validemail && password === validPassword){
+        alert("Login Success");
+       
+       window.location.href = 'admin.html';
+       }
+       else{
+        alert("Wrong email or password" );
+       }
+        
     });
     
 </script>
