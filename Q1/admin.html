@@ -6,6 +6,47 @@
     <title>Admin page</title>
 </head>
 <body>
-    
+    <button onclick="gotohome()">Go To Home Page</button>
+    <br><br>
+    <input type="text" id="RegNoofVehicle" placeholder="Enter vehicle no"><br><br>
+    <select id="category">
+        <option id="ALL">ALL</option>
+        <option id="Auto">Auto</option>
+        <option id="Car">Car</option>
+        <option id="Truck">Truck</option>
+        <option id="Bus">Bus</option>    
+    </select><br><br>
+    <input type="text" id="DriverName" placeholder="Enter driver name"><br><br>
+    <select id="isAvailable">
+        <option>Available</option>
+        <option>Unavailable</option>
+    </select><br><br>
+    <button onclick="addFleet()">Add Fleet</button><br><br>
+
+    <div id="vehicleConatiner"></div>
 </body>
+<script>
+    let vehicles= [];
+
+    const ImageUrl = "https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png"
+
+    function addFleet() {
+        let regNoofVehicle = document.getElementById(RegNoofVehicle).value;
+        let category = document.getElementById(category).value;
+        let driverName = document.getElementById(DriverName).value;
+        let isAvailable = document.getElementById(isAvailable).value;
+
+
+        let vehicle = {
+            regNoofVehicle,
+            category,
+            driverName,
+            isAvailable, 
+            imageUrl: ImageUrl
+        };
+        vehicles.push(vehicle);
+        renderVehicles(vehicles);
+    }
+
+</script>
 </html>

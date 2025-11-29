@@ -8,12 +8,12 @@
 <body>
     <input type="email" placeholder="Enter email"><br><br>
     <input type="password" placeholder="Enter password"><br><br>
-    <button onclick="login()">Login</button>
+    <button id="login">Login</button>
     
 </body>
 <script>
-    document.getElementById(login()).addEventListener("click", () => {
-        window.document.href='admin.html';
+    document.getElementById(login).addEventListener('click', () => {
+        window.location.href = 'admin.html'
     });
     
 </script>
