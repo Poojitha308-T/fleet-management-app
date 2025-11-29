@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: white;
+            color : white;
+            padding: 20px;
+        }
+        
+    </style>
 </head>
 <body>
-    <button onclick="gotohome()">Go To Home Page</button>
-    <br><br>
+    
+    <div class="sidebar">
     <input type="text" id="RegNoofVehicle" placeholder="Enter vehicle no"><br><br>
     <select id="category">
         <option id="ALL">ALL</option>
@@ -22,8 +38,27 @@
         <option>Unavailable</option>
     </select><br><br>
     <button onclick="addFleet()">Add Fleet</button><br><br>
+    </div>
+    <div class="main">
+        <label>Category</label>
+        <select id="filtercategory" onchange="applyfilters()">
+            <option>ALL</option>
+            <option>Auto</option>
+            <option>Car</option>
+            <option>Truck</option>
+            <option>Bus</option>
+        </select>
 
-    <div id="vehicleConatiner"></div>
+        <label>Availability</label>
+        <select id="filteravailable" onchange="applyfilter()">
+            <option>ALL</option>
+            <option>Available</option>
+            <option>Unavailable</option>
+        </select>
+        <button onclick="clearfilters()">ClearFilter</button>
+
+    </div>
+    <div class="cards" id="vehicleConatiner"></div>
 </body>
 <script>
     let vehicles= [];
@@ -78,7 +113,20 @@
             card.appendChild(isAvailable);
 
             conatiner.appendChild(card);
+
         });
+    }
+    function updateDriver(i){
+        let newName = prompt("Enter new name");
+        if(!newName) return;
+
+        vehicles[i].driverName = newName;
+        renderVehicles(vehicles);
+    }
+
+    function toggleAvail(){
+        vehicles[i].isAvailable = vehicles[i].isAvailable === "Available" ? "Unavailable" : "Available";
+        renderVehicles(vehicles);
     }
 
 </script>
