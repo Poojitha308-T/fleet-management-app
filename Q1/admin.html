@@ -48,5 +48,38 @@
         renderVehicles(vehicles);
     }
 
+    function renderVehicles(vehicleList) {
+        let container = document.getElementById("vehicleContainer");
+        conatiner.innerHTML = "";
+
+        vehicleList.forEach((vehicle, index) => {
+            let card = document.createElement("div");
+            card.className = "card";
+
+            let img = document.createElement("img");
+            img.src = vehicle.imageUrl;
+
+            let regNoofVehicle = document.createElement("number");
+            regNoofVehicle.textContent = vehicle.regNoofVehicle;
+
+            let category = document.createElement("p");
+            category.textContent = vehicle.category;
+
+            let driverName = document.createElement("p");
+            driverName.textContent = vehicle.driverName;
+
+            let isAvailable = documeny.createElement("p");
+            isAvailable.textContent = vehicle.isAvailable;
+
+            card.appendChild(img);
+            card.appendChild(regNoofVehicle);
+            card.appendChild(category);
+            card.appendChild(driverName);
+            card.appendChild(isAvailable);
+
+            conatiner.appendChild(card);
+        });
+    }
+
 </script>
 </html>
